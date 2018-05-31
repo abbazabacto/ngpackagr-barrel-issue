@@ -26,10 +26,10 @@ You can see that the generated `dist/ngpackagr-barrel-issue.metadata.json` is ge
 {"__symbolic":"module","version":4,"exports":[{"from":"./src/sub"}],"metadata":{"DummyModule":{"__symbolic":"class","decorators":[{"__symbolic":"call","expression":{"__symbolic":"reference","module":"@angular/core","name":"NgModule","line":3,"character":1},"arguments":[{"imports":[{"__symbolic":"reference","module":"@angular/common","name":"CommonModule","line":4,"character":12}]}]}],"members":{}}},"origins":{"DummyModule":"./src/dummy.module"},"importAs":"ngpackagr-barrel-issue"}
 ```
 
-But notice that this counts for all the Typescript barrels in your application, the `./src/sub` module which is referenced in the `./src/index.ts` file also needs to be changed:
+But notice that this counts for all the Typescript barrels in your application, the `./src/sub` module which is referenced in the `./src/index.ts` file also needs to be changed to explicit `/index` rederences:
 
 ```typescript
-export * from './sub';
+export * from './sub/index';
 export * from './dummy.module';
 ```
 
